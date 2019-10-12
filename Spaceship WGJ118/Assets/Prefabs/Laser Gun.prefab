@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6617016206739327847}
   - component: {fileID: 6617016206739327846}
-  - component: {fileID: 7724982207540023772}
+  - component: {fileID: -8467423819945934264}
   m_Layer: 0
   m_Name: Laser Gun
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7724982207540023772
+--- !u!114 &-8467423819945934264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

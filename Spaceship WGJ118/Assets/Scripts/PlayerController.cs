@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Movement();
         Aim();
@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
         float verticalMovement = Input.GetAxis("Vertical");
 
         Vector3 newPosition = new Vector3(horizontalMovement, verticalMovement, 0);
-        newPosition = newPosition.normalized * speed * Time.deltaTime;
-        transform.position += newPosition;
+        newPosition = newPosition.normalized * speed * Time.fixedDeltaTime;
+        rb.MovePosition(transform.position + newPosition);
+        //transform.position += newPosition;
     }
 }
