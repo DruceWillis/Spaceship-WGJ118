@@ -8,6 +8,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float stoppingDistance;
     [SerializeField] float retreatDistance;
+    [SerializeField] int health = 100;
+    
+
 
     public Transform player;
 
@@ -21,17 +24,16 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        //transform.LookAt(player.position);
+        LookAtPlayer();
+    }
+
+    private void LookAtPlayer()
+    {
         var offset = 270f;
         Vector2 direction = player.position - transform.position;
         direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;       
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-
-        // float addAngle = 270;
-        // Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + addAngle;
-        // transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     private void Move()
@@ -50,4 +52,13 @@ public class EnemyController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.fixedDeltaTime);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        health -= 10;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

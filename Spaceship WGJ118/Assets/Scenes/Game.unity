@@ -750,6 +750,11 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 156784039432288574, guid: 72c8cf707f94c0542af6f338d3d987c3,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 72c8cf707f94c0542af6f338d3d987c3, type: 3}
