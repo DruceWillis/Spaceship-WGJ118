@@ -9,20 +9,27 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float stoppingDistance;
     [SerializeField] float retreatDistance;
     public int health = 30;
-    
-    Transform player;
 
+    Transform player;
+    //GameObject body;
+    //SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        //body = gameObject.transform.Find("Body").gameObject;
+        //sprite = body.GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
-        LookAtPlayer();
+        if (player != null)
+        {
+            Move();
+            LookAtPlayer();
+        }
+        
     }
 
     private void LookAtPlayer()
@@ -51,5 +58,17 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // public void Fade()
+    // {
+    //     foreach (GameObject child in body.transform)
+    //     {
+    //         SpriteRenderer s = child.GetComponent<SpriteRenderer>();
+    //         float r = s.color.r;
+    //         float g = s.color.g;
+    //         float b = s.color.b;
+    //         float a = s.color.a / 1.5f;
+    //         s.color = new Color(r, g, b, a);
+    //     }
+        
+    // }
 }
-

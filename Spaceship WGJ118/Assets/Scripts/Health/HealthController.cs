@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {  
@@ -28,19 +29,20 @@ public class HealthController : MonoBehaviour
                 {
                     ParticleSystem particles = Instantiate(explosionVFX, transform.position, transform.rotation);
                     Destroy(gameObject);
+                    Time.timeScale = 0.2f;
                 }
+                
             }
             else
             {
                 FindObjectOfType<EnemyController>().health -= 10;
+                //FindObjectOfType<EnemyController>().Fade();
                 if (FindObjectOfType<EnemyController>().health <= 0)
                 {
                     ParticleSystem particles = Instantiate(explosionVFX, transform.position, transform.rotation);
                     Destroy(gameObject);
                 }
             }
-        }
-
-        
+        }        
     }
 }

@@ -25,7 +25,7 @@ public class EnemyShooting : MonoBehaviour
     private void ShootAtPlayer()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= fireCooldown)
+        if (currentTime >= fireCooldown && GameObject.FindGameObjectWithTag("Player") != null)
         {
             currentTime = 0;
             GameObject bulletInstance = (GameObject)Instantiate(bullet, barrel.transform.position, transform.rotation);

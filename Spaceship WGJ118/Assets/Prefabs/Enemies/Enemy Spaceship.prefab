@@ -299,6 +299,7 @@ MonoBehaviour:
   speed: 0
   stoppingDistance: 0
   retreatDistance: 0
+  health: 30
 --- !u!114 &-2834244489510999128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dc0e5ae5b45ad42b91c7f96e02fb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
   explosionVFX: {fileID: 8657859075069427208, guid: 113a3582ccbadd948b050526e3a406ba,
     type: 3}
 --- !u!1 &156784040028619576
@@ -643,6 +643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413193569555001902, guid: 64a5fe86806adec4ab97a812c8855b21,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a5fe86806adec4ab97a812c8855b21, type: 3}

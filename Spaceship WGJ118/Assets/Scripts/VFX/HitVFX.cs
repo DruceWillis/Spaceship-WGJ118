@@ -19,8 +19,6 @@ public class HitVFX : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log(gameObject.name + gameObject.transform.position);
-        Debug.Log(other.gameObject.name + other.transform.position);
         Destroy(gameObject);
         ParticleSystem particles = Instantiate(hitEffect, transform.position, transform.rotation);
     }

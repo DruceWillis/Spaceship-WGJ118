@@ -5,20 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    // Start is called before the first frame update
-    void Start()
+    public void LoadNextScene()
     {
-        
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ReloadScene()
     {
-        if (player == null)
-        {
-            SceneManager.LoadScene("Retry Screen");
-        }
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1f;
+    }
+
+    public void OpenOptions()
+    {
+        SceneManager.LoadScene("Options");
+    }
+
+    public void OpenHelp()
+    {
+        SceneManager.LoadScene("Help");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
 }

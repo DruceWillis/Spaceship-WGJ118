@@ -36,6 +36,5 @@ public class PlayerController : MonoBehaviour
         Vector3 newPosition = new Vector3(horizontalMovement, verticalMovement, 0);
         newPosition = newPosition.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(transform.position + newPosition);
-        //transform.position += newPosition;
     }
 }
