@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
-    [SerializeField] GameObject barrel;
-    [SerializeField] float bulletSpeed = 10f;
-    [SerializeField] float fireCooldown = 1f;
+    [SerializeField] float bulletSpeed = 40f;
+    [SerializeField] float fireCooldown = 0.2f;
+    [SerializeField] AudioClip[] fireSounds;
 
     private float currentTime = 0f;
     // Start is called before the first frame update
@@ -28,9 +28,14 @@ public class EnemyShooting : MonoBehaviour
         if (currentTime >= fireCooldown && GameObject.FindGameObjectWithTag("Player") != null)
         {
             currentTime = 0;
-            GameObject bulletInstance = (GameObject)Instantiate(bullet, barrel.transform.position, transform.rotation);
-            bulletInstance.transform.position = barrel.transform.position + barrel.transform.up * 0.2f;
-            bulletInstance.GetComponent<Rigidbody2D>().velocity = barrel.transform.up * bulletSpeed;
+            // GameObject bulletInstance = (GameObject)Instantiate(bullet, barrel.transform.position, transform.rotation);
+            // bulletInstance.transform.position = barrel.transform.position + barrel.transform.up * 0.2f;
+            // bulletInstance.GetComponent<Rigidbody2D>().velocity = barrel.transform.up * bulletSpeed;
+            GameObject bulletInstance = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+            bulletInstance.transform.position = transform.position + transform.up * 0.2f;
+            bulletInstance.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
+            AudioClip clip = fireSounds[0];
+            GetComponent<AudioSource>().PlayOneShot(clip);
             Destroy(bulletInstance, 4f);
         }
             

@@ -5,6 +5,7 @@ using UnityEngine;
 public class HitVFX : MonoBehaviour
 {
     [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] ParticleSystem explosionVFX;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,11 @@ public class HitVFX : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         Destroy(gameObject);
-        ParticleSystem particles = Instantiate(hitEffect, transform.position, transform.rotation);
+        Instantiate(hitEffect, transform.position, transform.rotation);
+        if (explosionVFX != null)
+        {
+            Instantiate(explosionVFX, transform.position, transform.rotation);
+        }
+        //Instantiate
     }
 }

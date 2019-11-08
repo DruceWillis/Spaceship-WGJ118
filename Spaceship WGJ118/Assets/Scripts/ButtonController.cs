@@ -8,8 +8,7 @@ public class ButtonController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Button retryButton;
     [SerializeField] Button mainMenuButton;
-    [SerializeField] Camera mainCamera;
-    [SerializeField] Color32 newColor;
+
 
     bool isPaused = false;
     // Start is called before the first frame update
@@ -49,7 +48,8 @@ public class ButtonController : MonoBehaviour
         {
             retryButton.gameObject.SetActive(true);
             mainMenuButton.gameObject.SetActive(true);
-            //mainCamera.backgroundColor = newColor;
         }
     }
+
+
 }

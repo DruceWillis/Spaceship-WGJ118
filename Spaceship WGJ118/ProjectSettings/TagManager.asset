@@ -6,8 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Projectile
-  - Rocket Launcher
   - Laser Gun
+  - Kamikaze
+  - Rocket Enemy
+  - Rocket
   layers:
   - Default
   - TransparentFX
@@ -18,10 +20,10 @@ TagManager:
   - 
   - 
   - Post Processing
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Player Projectile
+  - Enemy Projectile
   - 
   - 
   - 
